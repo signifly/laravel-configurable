@@ -128,6 +128,8 @@ class ConfigurableTest extends TestCase
     {
         $user = $this->createUser();
 
+        // This method has been added to the User model
+        // Take a look in the class to see how to do this
         $user->extras()->set('test', 'test value');
 
         $this->assertInstanceOf(Config::class, $user->extras());
