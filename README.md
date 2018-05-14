@@ -67,6 +67,13 @@ $user = User::find(1);
 $user->has('some_key'); // returns true
 ```
 
+Retrieving an attribute as a collection:
+
+```php
+$user = User::find(1);
+$user->collect('some_key'); // returns Collection(['some val']);
+```
+
 You can also overwrite the config key:
 
 ```php
