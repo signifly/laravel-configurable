@@ -24,9 +24,12 @@ class User
 }
 ```
 
+Adding the column to your table migration:
+
 ```php
-// Add this to your migration
-$table->json('config')->nullable();
+Schema::table('users', function (Blueprint $table) {
+    $table->config('config')->nullable();
+});
 ```
 
 Now you would be able to configure your user model:
