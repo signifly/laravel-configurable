@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Model;
 class Config implements ArrayAccess, Countable
 {
     /**
+     * The config db key.
+     *
+     * @var string|null
+     */
+    protected $configKey;
+
+    /**
      * The config data.
      *
      * @var array
@@ -27,11 +34,13 @@ class Config implements ArrayAccess, Countable
      *
      * @param array $data
      */
-    public function __construct(Model $model)
+    public function __construct(Model $model, $configKey = null)
     {
-        $this->data = $model->{$model->getConfigKey()};
-
         $this->model = $model;
+
+        $this->configKey = $configKey;
+
+        $this->data = $model->{$this->getConfigKey()};
     }
 
     /**
@@ -68,7 +77,7 @@ class Config implements ArrayAccess, Countable
     {
         array_set($this->data, $key, $value);
 
-        $this->model->{$this->model->getConfigKey()} = $this->data;
+        $this->model->{$this->getConfigKey()} = $this->data;
     }
 
     /**
@@ -79,7 +88,7 @@ class Config implements ArrayAccess, Countable
      */
     public function remove(string $key)
     {
-        $this->model->{$this->model->getConfigKey()} = array_except($this->data, $key);
+        $this->model->{$this->getConfigKey()} = array_except($this->data, $key);
 
         return $this;
     }
@@ -91,7 +100,7 @@ class Config implements ArrayAccess, Countable
      */
     public function all()
     {
-        return $this->model->{$this->model->getConfigKey()};
+        return $this->model->{$this->getConfigKey()};
     }
 
     /**
@@ -113,6 +122,16 @@ class Config implements ArrayAccess, Countable
     public function collect(string $key)
     {
         return collect($this->get($key));
+    }
+
+    /**
+     * Get the config key.
+     *
+     * @return string
+     */
+    protected function getConfigKey()
+    {
+        return $this->configKey ?? $this->model->getConfigKey();
     }
 
     /**

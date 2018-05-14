@@ -2,6 +2,7 @@
 
 namespace Signifly\Configurable\Test\Models;
 
+use Signifly\Configurable\Config;
 use Illuminate\Database\Eloquent\Model;
 use Signifly\Configurable\Configurable;
 
@@ -15,7 +16,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'config',
+        'name', 'email', 'config', 'extras',
     ];
 
     /**
@@ -25,5 +26,16 @@ class User extends Model
      */
     protected $casts = [
         'config' => 'array',
+        'extras' => 'array',
     ];
+
+    /**
+     * Add custom config using extras attribute.
+     *
+     * @return \Signifly\Configurable\Config
+     */
+    public function extras()
+    {
+        return new Config($this, 'extras');
+    }
 }

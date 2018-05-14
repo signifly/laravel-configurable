@@ -37,6 +37,7 @@ abstract class TestCase extends Orchestra
             $table->string('name');
             $table->string('email');
             $table->json('config')->nullable();
+            $table->json('extras')->nullable();
             $table->timestamps();
         });
     }

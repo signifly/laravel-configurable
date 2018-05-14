@@ -2,6 +2,7 @@
 
 namespace Signifly\Configurable\Test;
 
+use Signifly\Configurable\Config;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Event;
 use Signifly\Configurable\Test\Models\User;
@@ -122,12 +123,24 @@ class ConfigurableTest extends TestCase
         $this->assertInstanceOf(Collection::class, $user->config()->collect('some_array'));
     }
 
+    /** @test */
+    function it_can_use_a_custom_config()
+    {
+        $user = $this->createUser();
+
+        $user->extras()->set('test', 'test value');
+
+        $this->assertInstanceOf(Config::class, $user->extras());
+        $this->assertEquals($user->extras()->test, 'test value');
+    }
+
     protected function createUser(array $overwrites = [])
     {
         return User::create(array_merge([
             'name' => 'John Doe',
             'email' => 'jd@example.org',
             'config' => null,
+            'extras' => null,
         ], $overwrites));
     }
 }
