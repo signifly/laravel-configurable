@@ -86,17 +86,24 @@ class User
     
     // Remember to make `settings` fillable
     protected $fillable = [
-        'settings',
+        'settings', 'extras',
     ];
     
     // Remember to add `settings` to casts
     protected $casts = [
         'settings' => 'array',
+        'extras' => 'array',
     ];
 
     protected function getConfigKey()
     {
         return 'settings';
+    }
+
+    // or add a custom config attribute like this:
+    public function getExtrasAttribute()
+    {
+        return new Config($this, 'extras');
     }
 }
 ```
