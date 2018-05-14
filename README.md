@@ -24,6 +24,11 @@ class User
 }
 ```
 
+```php
+// Add this to your migration
+$table->json('config')->nullable();
+```
+
 Now you would be able to configure your user model:
 
 ```php
@@ -39,6 +44,33 @@ Retrieving from your config is straightforward:
 $user = User::find(1);
 $user->config()->some_key; // returns some val
 $user->config()->get('some_other_key'); // return some other val
+```
+
+You can also overwrite the config key:
+
+```php
+// Remember to add use statement
+use Signifly\Configurable\Configurable;
+
+class User
+{
+    use Configurable;
+    
+    // Remember to make `settings` fillable
+    protected $fillable = [
+        'settings',
+    ];
+    
+    // Remember to add `settings` to casts
+    protected $casts = [
+        'settings' => 'array',
+    ];
+
+    protected function getConfigKey()
+    {
+        return 'settings';
+    }
+}
 ```
 
 ## Documentation
