@@ -105,6 +105,17 @@ class Config implements ArrayAccess, Countable
     }
 
     /**
+     * Get a specific attribute as a collection.
+     *
+     * @param  string $key
+     * @return \Illuminate\Support\Collection
+     */
+    public function collect(string $key)
+    {
+        return collect($this->get($key));
+    }
+
+    /**
      * Determine if the given attribute exists.
      *
      * @param  string $offset

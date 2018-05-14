@@ -2,6 +2,7 @@
 
 namespace Signifly\Configurable\Test;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Event;
 use Signifly\Configurable\Test\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -106,6 +107,19 @@ class ConfigurableTest extends TestCase
                 'nested' => 'nested value',
             ],
         ]);
+    }
+
+    /** @test */
+    function it_can_retrieve_an_attribute_as_a_collection()
+    {
+        $user = $this->createUser(['config' =>  [
+            'some_key' => 'some val',
+            'some_array' => [
+                'nested' => 'nested value',
+            ],
+        ]]);
+
+        $this->assertInstanceOf(Collection::class, $user->config()->collect('some_array'));
     }
 
     protected function createUser(array $overwrites = [])
