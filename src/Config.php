@@ -40,7 +40,7 @@ class Config implements ArrayAccess, Countable
 
         $this->configKey = $configKey;
 
-        $this->data = $model->{$this->getConfigKey()};
+        $this->data = $this->getRawData();
     }
 
     /**
@@ -100,7 +100,7 @@ class Config implements ArrayAccess, Countable
      */
     public function all()
     {
-        return $this->model->{$this->getConfigKey()};
+        return $this->getRawData();
     }
 
     /**
@@ -132,6 +132,16 @@ class Config implements ArrayAccess, Countable
     protected function getConfigKey()
     {
         return $this->configKey ?? $this->model->getConfigKey();
+    }
+
+    /**
+     * Get the raw data from the model.
+     *
+     * @return array
+     */
+    protected function getRawData()
+    {
+        return json_decode($this->model->getAttributes()[$this->getConfigKey()] ?? '{}', true);
     }
 
     /**

@@ -130,10 +130,10 @@ class ConfigurableTest extends TestCase
 
         // This method has been added to the User model
         // Take a look in the class to see how to do this
-        $user->extras()->set('test', 'test value');
+        $user->extras->set('test', 'test value');
 
-        $this->assertInstanceOf(Config::class, $user->extras());
-        $this->assertEquals($user->extras()->test, 'test value');
+        $this->assertInstanceOf(Config::class, $user->extras);
+        $this->assertEquals($user->extras->test, 'test value');
     }
 
     protected function createUser(array $overwrites = [])

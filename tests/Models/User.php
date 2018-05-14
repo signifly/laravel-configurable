@@ -34,7 +34,7 @@ class User extends Model
      *
      * @return \Signifly\Configurable\Config
      */
-    public function extras()
+    public function getExtrasAttribute()
     {
         return new Config($this, 'extras');
     }
