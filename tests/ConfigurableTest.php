@@ -86,6 +86,7 @@ class ConfigurableTest extends TestCase
             ],
         ]]);
 
+        $this->assertCount(2, $user->config());
         $this->assertEquals($user->config()->count(), 2);
     }
 
