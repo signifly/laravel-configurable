@@ -31,7 +31,7 @@ Adding the column to your table migration:
 
 ```php
 Schema::table('users', function (Blueprint $table) {
-    $table->config('config')->nullable();
+    $table->json('config')->nullable();
 });
 ```
 
