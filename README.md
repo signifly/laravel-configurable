@@ -52,6 +52,21 @@ $user->config()->some_key; // returns some val
 $user->config()->get('some_other_key'); // return some other val
 ```
 
+Removing attributes from config can be done like this:
+
+```php
+$user = User::find(1);
+$user->remove('some_key');
+$user->save();
+```
+
+Checking if an attribute exists in the config:
+
+```php
+$user = User::find(1);
+$user->has('some_key'); // returns true
+```
+
 You can also overwrite the config key:
 
 ```php
