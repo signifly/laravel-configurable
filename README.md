@@ -1,5 +1,8 @@
 # Easily make your Eloquent models configurable
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/signifly/laravel-configurable.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-configurable)
+[![Total Downloads](https://img.shields.io/packagist/dt/signifly/laravel-configurable.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-configurable)
+
 The `signifly/laravel-configurable` package allows you to easily make your Eloquent models configurable.
 
 Below is a small example of how to use it.
