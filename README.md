@@ -56,7 +56,7 @@ Removing attributes from config can be done like this:
 
 ```php
 $user = User::find(1);
-$user->remove('some_key');
+$user->config()->remove('some_key');
 $user->save();
 ```
 
@@ -64,14 +64,14 @@ Checking if an attribute exists in the config:
 
 ```php
 $user = User::find(1);
-$user->has('some_key'); // returns true
+$user->config()->has('some_key'); // returns true
 ```
 
 Retrieving an attribute as a collection:
 
 ```php
 $user = User::find(1);
-$user->collect('some_key'); // returns Collection(['some val']);
+$user->config()->collect('some_key'); // returns Collection(['some val']);
 ```
 
 You can also overwrite the config key:
