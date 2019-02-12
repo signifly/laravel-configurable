@@ -4,7 +4,6 @@ namespace Signifly\Configurable\Test;
 
 use Signifly\Configurable\Config;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Event;
 use Signifly\Configurable\Test\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -13,7 +12,7 @@ class ConfigurableTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_saves_to_config()
+    public function it_saves_to_config()
     {
         $user = $this->createUser();
 
@@ -32,7 +31,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_retrieves_from_config()
+    public function it_retrieves_from_config()
     {
         $user = $this->createUser(['config' =>  [
             'some_key' => 'some val',
@@ -49,7 +48,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_removes_from_config()
+    public function it_removes_from_config()
     {
         $user = $this->createUser(['config' =>  [
             'some_key' => 'some val',
@@ -68,7 +67,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_modifies_config_without_saving()
+    public function it_modifies_config_without_saving()
     {
         $user = $this->createUser();
 
@@ -79,7 +78,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_can_count_attributes_in_config()
+    public function it_can_count_attributes_in_config()
     {
         $user = $this->createUser(['config' =>  [
             'some_key' => 'some val',
@@ -93,7 +92,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_can_retrieve_all_attributes_from_config()
+    public function it_can_retrieve_all_attributes_from_config()
     {
         $user = $this->createUser(['config' =>  [
             'some_key' => 'some val',
@@ -111,7 +110,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_can_retrieve_an_attribute_as_a_collection()
+    public function it_can_retrieve_an_attribute_as_a_collection()
     {
         $user = $this->createUser(['config' =>  [
             'some_key' => 'some val',
@@ -124,7 +123,7 @@ class ConfigurableTest extends TestCase
     }
 
     /** @test */
-    function it_can_use_a_custom_config()
+    public function it_can_use_a_custom_config()
     {
         $user = $this->createUser();
 

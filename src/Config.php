@@ -59,7 +59,7 @@ class Config implements ArrayAccess, Countable
      * Determine if an attribute exists in config.
      *
      * @param  string  $key
-     * @return boolean
+     * @return bool
      */
     public function has(string $key)
     {
@@ -155,7 +155,7 @@ class Config implements ArrayAccess, Countable
         return $this->has($offset);
     }
 
-     /**
+    /**
      * Get the value for a given offset.
      *
      * @param  string $offset
