@@ -16,8 +16,7 @@ trait Configurable
     /**
      * Get a Config value object.
      *
-     * @param  array $value
-     * @return \App\Models\ValueObjects\Config
+     * @return Config
      */
     public function config()
     {
