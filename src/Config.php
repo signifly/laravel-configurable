@@ -4,6 +4,8 @@ namespace Signifly\Configurable;
 
 use Countable;
 use ArrayAccess;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Config implements ArrayAccess, Countable
@@ -52,7 +54,7 @@ class Config implements ArrayAccess, Countable
      */
     public function get(string $key, $default = null)
     {
-        return array_get($this->data, $key, $default);
+        return Arr::get($this->data, $key, $default);
     }
 
     /**
@@ -63,7 +65,7 @@ class Config implements ArrayAccess, Countable
      */
     public function has(string $key)
     {
-        return array_has($this->data, $key);
+        return Arr::has($this->data, $key);
     }
 
     /**
@@ -75,7 +77,7 @@ class Config implements ArrayAccess, Countable
      */
     public function set(string $key, $value)
     {
-        array_set($this->data, $key, $value);
+        Arr::set($this->data, $key, $value);
 
         $this->model->{$this->getConfigKey()} = $this->data;
     }
@@ -121,7 +123,7 @@ class Config implements ArrayAccess, Countable
      */
     public function collect(string $key)
     {
-        return collect($this->get($key));
+        return new Collection($this->get($key));
     }
 
     /**
