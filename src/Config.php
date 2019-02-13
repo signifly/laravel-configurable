@@ -72,8 +72,8 @@ class Config implements ArrayAccess, Countable
      * Set an attribute in config.
      *
      * @param string $key
-     * @param boolean $value
-     * @return boolean|null
+     * @param bool $value
+     * @return bool|null
      */
     public function set(string $key, $value)
     {
