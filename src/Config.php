@@ -34,7 +34,7 @@ class Config implements ArrayAccess, Countable
     /**
      * Create a new Config instance.
      *
-     * @param array $data
+     * @param string $configKey
      */
     public function __construct(Model $model, $configKey = null)
     {
@@ -72,8 +72,8 @@ class Config implements ArrayAccess, Countable
      * Set an attribute in config.
      *
      * @param string $key
-     * @param mixed $value
-     * @return bool
+     * @param bool $value
+     * @return bool|null
      */
     public function set(string $key, $value)
     {
@@ -86,7 +86,7 @@ class Config implements ArrayAccess, Countable
      * Remove an attribute from config.
      *
      * @param  string $key
-     * @return bool
+     * @return Config
      */
     public function remove(string $key)
     {
