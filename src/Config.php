@@ -90,7 +90,7 @@ class Config implements ArrayAccess, Countable
      */
     public function remove(string $key)
     {
-        $this->model->{$this->getConfigKey()} = array_except($this->data, $key);
+        $this->model->{$this->getConfigKey()} = Arr::except($this->data, $key);
 
         return $this;
     }

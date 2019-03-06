@@ -2,6 +2,7 @@
 
 namespace Signifly\Configurable;
 
+use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 
 trait Configurable
@@ -42,7 +43,7 @@ trait Configurable
      */
     protected function makeConfig(Model $model, string $key)
     {
-        return array_get($this->cachedConfigs, $key, function () use ($key, $model) {
+        return Arr::get($this->cachedConfigs, $key, function () use ($key, $model) {
             return $this->cachedConfigs[$key] = new Config($model, $key);
         });
     }
