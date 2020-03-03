@@ -2,8 +2,8 @@
 
 namespace Signifly\Configurable;
 
-use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 trait Configurable
 {

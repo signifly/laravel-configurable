@@ -2,11 +2,11 @@
 
 namespace Signifly\Configurable;
 
-use Countable;
 use ArrayAccess;
+use Countable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
 
 class Config implements ArrayAccess, Countable
 {

@@ -2,8 +2,8 @@
 
 namespace Signifly\Configurable\Test\Models;
 
-use Signifly\Configurable\Config;
 use Illuminate\Database\Eloquent\Model;
+use Signifly\Configurable\Config;
 use Signifly\Configurable\Configurable;
 
 class User extends Model

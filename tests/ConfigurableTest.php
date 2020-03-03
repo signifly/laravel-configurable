@@ -2,10 +2,10 @@
 
 namespace Signifly\Configurable\Test;
 
-use Signifly\Configurable\Config;
-use Illuminate\Support\Collection;
-use Signifly\Configurable\Test\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Collection;
+use Signifly\Configurable\Config;
+use Signifly\Configurable\Test\Models\User;
 
 class ConfigurableTest extends TestCase
 {
