@@ -1,7 +1,7 @@
 # Easily make your Eloquent models configurable
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/signifly/laravel-configurable.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-configurable)
-[![Build Status](https://img.shields.io/travis/signifly/laravel-configurable/master.svg?style=flat-square)](https://travis-ci.org/signifly/laravel-configurable)
+![Tests](https://github.com/signifly/laravel-janitor/workflows/Tests/badge.svg)
 [![StyleCI](https://styleci.io/repos/117567334/shield?branch=master)](https://styleci.io/repos/117567334)
 [![Quality Score](https://img.shields.io/scrutinizer/g/signifly/laravel-configurable.svg?style=flat-square)](https://scrutinizer-ci.com/g/signifly/laravel-configurable)
 [![Total Downloads](https://img.shields.io/packagist/dt/signifly/laravel-configurable.svg?style=flat-square)](https://packagist.org/packages/signifly/laravel-configurable)
